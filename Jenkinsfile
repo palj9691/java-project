@@ -1,5 +1,5 @@
-pipeline {
-  agent { label 'linux' }
+properties([pipelineTriggers([githubPush()])])
+node('linux') {
     git url: 'https://github.com/palj9691/java-project.git', branch: 'master'
     stage ("UnitTest") {
       steps {
